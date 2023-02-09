@@ -1,12 +1,21 @@
 # Table of contents
 
-### 笔记
+## 笔记
 
-* [MySQL](notes/MySQL笔记.md)
+> ### 数据库
+>
+> [MySQL](notes/MySQL笔记.md)
 
-### 博客
+> ### python
+>
+>  [Numpy](notes\Numpy.md) 
 
-### 心情
+---
 
+## 博客
 
+>  [PVE安装黑群晖](blogs\PVE安装黑群晖.md) 
+>
+>  [PVE掉N卡驱动](blogs\PVE掉N卡驱动.md) 
 
+## 心情
