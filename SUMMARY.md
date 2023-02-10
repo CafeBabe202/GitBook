@@ -9,10 +9,10 @@
 * [java中的字符与字符串编码](notes/java/java中的字符与字符串编码.md) 
 * [并发](notes/java/并发.md) 
 * [MyBatis](notes/java/MyBatis.md) 
-* [Spring](notes/Java/Spring.md) 
-* [SpringMVC](notes/Java/SpringMVC.md) 
-* [JVM](notes/Java/JVM.md) 
-* [垃圾收集器](notes/Java/垃圾收集器.md) 
+* [Spring](notes/java/Spring.md) 
+* [SpringMVC](notes/java/SpringMVC.md) 
+* [JVM](notes/java/JVM.md) 
+* [垃圾收集器](notes/java/垃圾收集器.md) 
 
 ## python
 
