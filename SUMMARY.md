@@ -1,16 +1,14 @@
 # Table of contents
 
-* [README](README.md)
-
 ## 数据库
 
 * [😃 MySQL笔记](notes/dataBase/MySQL笔记.md)
 
 ## JAVA
 
-* [java中的字符与字符串编码](java/java-zhong-de-zi-fu-yu-zi-fu-chuan-bian-ma.md)
-* [并发](java/bing-fa.md)
-* [MyBatis](java/mybatis.md)
+* [java中的字符与字符串编码](/notes/java/java中的字符串与字符串编码.md)
+* [并发](notes/java/并发.md)
+* [MyBatis](notes/java/mybatis.md)
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
 * [😄 JVM](notes/Java/JVM.md)
