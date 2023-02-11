@@ -8,7 +8,7 @@
 
 * [😀 java中的字符与编码](notes/Java/Java中的字符串与编码.md)
 * [😀 并发](notes/Java/并发.md)
-* [😄 MyBatis](notes/Java/Mybatis.md)
+* [😄 MyBatis](notes/Java/MyBatis.md)
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
 * [😁 JVM](notes/Java/JVM.md)
