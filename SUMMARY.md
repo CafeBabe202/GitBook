@@ -6,7 +6,7 @@
 
 ## JAVA
 
-* [java中的字符与编码](notes/Java/Java中的字符串与编码.md)
+* [Java中的字符与编码](notes/Java/Java中的字符串与编码.md)
 * [并发](notes/Java/并发.md)
 * [MyBatis](notes/Java/mybatis.md)
 * [😄 Spring](notes/Java/Spring.md)
