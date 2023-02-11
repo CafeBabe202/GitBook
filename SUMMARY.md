@@ -6,9 +6,9 @@
 
 ## JAVA
 
-* [java中的字符与字符串编码](/notes/java/java中的字符串与字符串编码.md)
-* [并发](notes/java/并发.md)
-* [MyBatis](notes/java/mybatis.md)
+* [java中的字符与字符串编码](notes/Java/java中的字符串与字符串编码.md)
+* [并发](notes/Java/并发.md)
+* [MyBatis](notes/Java/mybatis.md)
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
 * [😄 JVM](notes/Java/JVM.md)
