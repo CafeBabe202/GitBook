@@ -1,5 +1,6 @@
 # Table of contents
 
+
 ## 数据库
 
 * [😃 MySQL笔记](notes/dataBase/MySQL笔记.md)
@@ -8,10 +9,14 @@
 
 * [Java中的字符与编码](notes/Java/Java中的字符串与编码.md)
 * [并发](notes/Java/并发.md)
-* [MyBatis](notes/Java/mybatis.md)
+* [MyBatis](notes/Java/Mybatis.md)
+* [😀 java中的字符与编码](notes/Java/Java中的字符串与编码.md)
+* [😀 并发](notes/Java/并发.md)
+* [😄 MyBatis](java/mybatis.md)
+>>>>>>> 19b961603286638cee54ce3253c6e682a466616a
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
-* [😄 JVM](notes/Java/JVM.md)
+* [😁 JVM](notes/Java/JVM.md)
 * [😅 垃圾收集器](notes/Java/垃圾收集器.md)
 
 ## python
