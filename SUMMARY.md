@@ -1,5 +1,6 @@
 # Table of contents
 
+* [README](README.md)
 
 ## 数据库
 
@@ -9,7 +10,7 @@
 
 * [😀 java中的字符与编码](notes/Java/Java中的字符串与编码.md)
 * [😀 并发](notes/Java/并发.md)
-* [😄 MyBatis](notes/Java/Mybatis.md)
+* [😄 MyBatis](java/mybatis.md)
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
 * [😁 JVM](notes/Java/JVM.md)
