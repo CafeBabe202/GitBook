@@ -14,34 +14,34 @@ pom.xml
 
 ```xml
 <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.21</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.4.6</version>
+    </dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+    </dependency>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.16</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
 ```
 
 mybatis-config.xml
@@ -93,15 +93,6 @@ mybatis-config.xml
 UserMapper.java
 
 ```java
-package cn.happyOnion801.study.myBatis.dao;
-
-import cn.happyOnion801.study.myBatis.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
-import java.util.Map;
-
 /**
  * 可以通过注释添加sql语句，直接进行查询，简单查询很方便，但是复杂查询很难受，不建议使用这种方式
  * 如果通过注解进行接口的实现，请通过class的方式进行Mapper的注册
@@ -209,17 +200,6 @@ UserMapper.xml
 ```
 
 ```java
-package cn.happyOnion801.study.myBatis.test.dao;
-
-import cn.happyOnion801.study.myBatis.dao.UserMapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Test;
-
-import java.io.IOException;
-
 public class UserMapperTest {
     @Test
     public void test(){
@@ -607,14 +587,6 @@ myBatis不仅有自己的缓存（好像就是一个Map）而且还支持第三�
 首先创建一个myCache类，你必须要实现他的接口才行。
 
 ```java
-package cn.happyOnion801.study.myBatis.utils;
-
-import org.apache.ibatis.cache.Cache;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.locks.ReadWriteLock;
-
 public class MyCache implements Cache {
 
     private Map<Object, Object> map;

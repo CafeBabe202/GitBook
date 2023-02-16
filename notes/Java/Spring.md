@@ -166,10 +166,6 @@
 ### 创建工厂Bean
 
 ```java
-package cn.happyonion801.study.spring.bean;
-
-import org.springframework.beans.factory.FactoryBean;
-
 public class MyBean implements FactoryBean<Book> {
     @Override
     public Book getObject() throws Exception {
@@ -220,11 +216,6 @@ public class MyBean implements FactoryBean<Book> {
 ### Bean的生命周期
 
 ```java
-package cn.happyonion801.study.spring.bean;
-
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-
 public class MyBeanPost implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean,String beanName) throws BeansException {
@@ -250,10 +241,12 @@ public class MyBeanPost implements BeanPostProcessor {
 	6、bean可以使用了
 	7、当容器关闭时，调用bean的销毁方法 ==需要进行配置==
 -->
+
 <!--创建后置处理器：
 	1、实现BeanPostProcessor
 	2、实现方法
 -->
+
 <!--配置后置处理器 ==创建后置处理器后会为所有对象都使用后置处理器==-->
 <bean id="myBeanPost1" class="cn.happyonion801.study.spring.bean.MyBeanPost"></bean>
 ```
@@ -264,6 +257,7 @@ public class MyBeanPost implements BeanPostProcessor {
 <!--什么是自动装配
 	根据指定的装配规则（属性名称，或者属性类型），Spring自动将匹配的属性值进行自动注入
 -->
+
 <!--autowire
 	byName 根据名称注入，注入的bean的值和类型的名称一样
 	byType 根据类型注入，对应类型的bean只能有一个才行
@@ -300,20 +294,25 @@ public class MyBeanPost implements BeanPostProcessor {
 	2、注解可以作用在类、方法、属性上边
 	3、使用注解简化xml配置
 -->
+
 <!--Spring针对bean管理中的注解
     1、@Component：最普通的组件，可以被注入到spring容器进行管理
     2、@Service：作用于业务逻辑层
     3、@Controller：作用于表现层（spring-mvc的注解）
     4、@Repository：作用于持久层
 -->
+
 <!--上边四个功能是一样的，都可以用来创建bean对象-->
+
 <!--使用注解
     1、添加aop依赖
     2、开启组件扫面 （要添加context命名空间）
 -->
+
 <!--开启组件扫描-->
 <!--想要扫描多个包，可以使用逗号分开-->
 <context:component-scan base-package="cn.happyonion801.study.spring.bean.scan,cn.happyonion801.study.spring.bean.dao"></context:component-scan>
+
 <!--组件扫面的细节配置
     use-default-filters="false" 设置默认全部不扫描
     context:include-filter 设置扫描那些
@@ -323,6 +322,7 @@ public class MyBeanPost implements BeanPostProcessor {
 <context:component-scan base-package="cn.happyonion801.study.spring.bean.dao" use-default-filters="false">
     <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
 </context:component-scan>
+
 <!--
     不设置use-default-filters默认是true，默认全部扫描
     context:exclude-filter 设置不扫描那些
@@ -341,13 +341,6 @@ public class MyBeanPost implements BeanPostProcessor {
 ```
 
 ```java
-package cn.happyonion801.study.spring.bean.dao;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 @Service
 public class UserService {
     @Autowired @Qualifier(value = "userDao1")
@@ -362,10 +355,6 @@ public class UserService {
 ```
 
 ```java
-package cn.happyonion801.study.spring.bean.dao;
-
-import org.springframework.stereotype.Component;
-
 // value 值可以不写，默认是首字母小写的类名
 @Component(value = "userDao1")  //<bean id="userDao1" class="cn.happyonion801.study.spring.bean.dao.USerDao"></bean>
 public class UserDao {
@@ -378,15 +367,9 @@ public class UserDao {
 #### 完全注释开发
 
 ```java
-package cn.happyonion801.study.spring.config;
-
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
 @Configuration  //声明是配置文件
 @ComponentScan(basePackages = {"cn.happyonion801.study.spring.bean"}) //开启扫描
 public class Config {
-
 }
 ```
 
@@ -406,8 +389,6 @@ public class Config {
 #### 2、使用JDK实现动态代理
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
 public interface UserDao {
     public int add(int a,int b);
 
@@ -416,8 +397,6 @@ public interface UserDao {
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
 public class UserDaoImpl implements UserDao {
     @Override
     public int add(int a, int b) {
@@ -433,12 +412,6 @@ public class UserDaoImpl implements UserDao {
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-
 public class JDKProxy {
     public static void main(String[] args) {
         UserDao userDao = (UserDao) Proxy.newProxyInstance(
@@ -551,8 +524,6 @@ execution(* cn.happyonion801.study.spring.DAO.* .*(...))
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
 public class UserDaoImpl implements UserDao {
     @Override
     public int add(int a, int b) {
@@ -572,19 +543,11 @@ public class UserDaoImpl implements UserDao {
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.stereotype.Component;
-
 public class UserDaoImplProxy {
     public void before(){
         System.out.println("before...");
     }
 }
-
 ```
 
 ### 基于配注解实现增强
@@ -598,14 +561,6 @@ public class UserDaoImplProxy {
 4、应用切面
 
 ```java
-package cn.happyonion801.study.spring.config;
-
-import cn.happyonion801.study.spring.aop.UserDaoImpl;
-import cn.happyonion801.study.spring.aop.UserDaoImplProxy;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @Configuration
 public class Aop {
@@ -618,14 +573,9 @@ public class Aop {
         return new UserDaoImplProxy();
     }
 }
-
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
-import org.springframework.stereotype.Component;
-
 public class UserDaoImpl implements UserDao {
     @Override
     public int add(int a, int b) {
@@ -645,12 +595,6 @@ public class UserDaoImpl implements UserDao {
 ```
 
 ```java
-package cn.happyonion801.study.spring.aop;
-
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
-
 @Aspect
 @Order(1)
 public class UserDaoImplProxy {
@@ -765,17 +709,6 @@ Spring 框架对 JDBC 进行封装，使用 JdbcTemplate 方便实现对数据�
 ```
 
 ```java
-package cn.happyonion801.study.spring.jdbc.dao;
-
-import cn.happyonion801.study.spring.jdbc.entity.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class BookDaoImpl implements BookDao {
 
@@ -849,15 +782,6 @@ public class BookDaoImpl implements BookDao {
 ```
 
 ```java
-package cn.happyonion801.study.spring.jdbc.service;
-
-import cn.happyonion801.study.spring.jdbc.dao.BookDao;
-import cn.happyonion801.study.spring.jdbc.entity.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
-
 @Repository
 public class BookService {
     @Autowired
@@ -887,17 +811,6 @@ public class BookService {
 ```
 
 ```java
-package cn.happyonion801.study.spring.jdbc;
-
-import cn.happyonion801.study.spring.jdbc.entity.Book;
-import cn.happyonion801.study.spring.jdbc.service.BookService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Test {
     @org.junit.Test
     public void add(){
@@ -938,7 +851,6 @@ public class Test {
         BookService bookService = context.getBean("bookService", BookService.class);
         System.out.println(Arrays.toString(bookService.batchAdd(books)));
     }
-
 }
 ```
 
@@ -1034,13 +946,6 @@ public class Test {
 ```
 
 ```java
-package cn.happyonion801.study.spring.jdbc.dao;
-
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
 @Repository
 public class UserDaoImpl implements UserDao{
     @Autowired
@@ -1067,13 +972,6 @@ public class UserDaoImpl implements UserDao{
 ```
 
 ```java
-package cn.happyonion801.study.spring.jdbc.service;
-
-import cn.happyonion801.study.spring.jdbc.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
 @Component
 /**
  * 声明是一个事务
@@ -1179,29 +1077,13 @@ public class UserService {
 </beans>
 ```
 
-```
-java代码与基于注解的一样，只不过不同添加@Transactional注解
-```
+java代码与基于注解的一样，只不过不同添加 @Transactional 注解
 
 #### 完全注解开发
 
-```
 配置类如下，其他的都一样
-```
 
 ```java
-package cn.happyonion801.study.spring.config;
-
-import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
-
 @Configuration //声明这是一个配置类
 @ComponentScan(basePackages = "cn.happyonion801.study.spring.jdbc") //开启组件扫描
 @EnableTransactionManagement //启用事务管理
@@ -1235,23 +1117,26 @@ public class Jdbc {
 
 ## Spring5中的新功能
 
-1、整个spring5基于java8，运行时兼容jdk9，将不建议的类和方法删除
+1. 整个 spring5 基于 java8，运行时兼容jdk9，将不建议的类和方法删除
 
-2、spring5框架自带了通用的日志封装，也可以整合第三方日志框架
+2. spring5框架自带了通用的日志封装，也可以整合第三方日志框架
 
-- spring5移出了Log4jConfigListener，官方建议使用Log4j2
+   - spring5移出了Log4jConfigListener，官方建议使用Log4j2
 
-- sprig5框架整合Log4j2
 
-- - 引入依赖
+   - sprig5框架整合Log4j2
+   - 引入依赖
+     - 创建Log4j2配置文件（Log4j2.xml 固定的）
 
-  - 创建Log4j2配置文件（Log4j2.xml 固定的）
 
-3、spring5支持@Nullable注解
+3. spring5支持@Nullable注解
 
-- 在方法上边，方法的返回值可以为空
-- 使用在方法参数里，方法的参数可以为空
-- 使用在属性上边，属性值可以为空
+   - 在方法上边，方法的返回值可以为空
+
+   - 使用在方法参数里，方法的参数可以为空
+
+   - 使用在属性上边，属性值可以为空
+
 
 ​    
 

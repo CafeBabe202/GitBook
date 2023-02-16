@@ -21,7 +21,7 @@ nvidia-current-520.61.05
 
 ## 解决过程
 
-然后按照找了一篇博客，说要执行如下两条命令：
+然后按照报错信息找了一篇博客，说要执行如下两条命令：
 
 ```shell
 sudo apt-get install dkms
@@ -36,7 +36,7 @@ sudo dkms install -m nvidia -v current-520.61.05
 
 果然，这样就不在报这个上边的错误了。
 
-然后有继续报错了，是说 **pve-headers-5.15.74-1-pve_5.15.74** 这个包找不到，我记得当初我安装驱动的时候就是找不到 **pve-headers-xxx** 这样的内核头文件的包，折腾了很久，最后在一个源里扒到了 deb 包，然后下载下来手动安装的，下边是下载链接：
+然后又继续报错了，是说 **pve-headers-5.15.74-1-pve_5.15.74** 这个包找不到，我记得当初我安装驱动的时候就是找不到 **pve-headers-xxx** 这样的内核头文件的包，折腾了很久，最后在一个源里扒到了 deb 包，然后下载下来手动安装的，下边是下载链接：
 
 ```shell
 http://download.proxmox.com/debian/pve/dists/bullseye/pve-no-subscription/binary-amd64/
@@ -70,4 +70,4 @@ Thu Jan  5 22:16:47 2023
 
 ## 分析
 
-我我觉得可能是因为不小心更新了内核，然后又找不到对应的  **pve-headers-xxx** 包，所以驱动掉了，只要手动安装上 **pve-headers-xxx** 就行了。
+我觉得可能是因为不小心更新了内核，然后又找不到对应的  **pve-headers-xxx** 包，所以驱动掉了，只要手动安装上 **pve-headers-xxx** 就行了。
