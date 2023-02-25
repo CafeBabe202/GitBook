@@ -1506,7 +1506,7 @@ public class MyReducer extends Reducer<Text, FlowBean, Text, FlowBean> {
 
 MapReduce 的工作流程框架如上图所示，要处理的数据首先经过 InputFormat 进行切片处理，然后将每个切片交给 Mapper 进行处理，Mapper 处理结束后经过 Shuffle 后再交给 Recuder，最后经过 OutFormat 输出。更加具体的流程图如下：
 
-![image-20230131135717685](hadoop.assets/image-20230131135717685.png)
+![image-20230131135717685](Hadoop.assets/image-20230131135717685.png)
 
 1. 首先需要输入文件
 2. 客户端对输入数据进行逻辑切片
@@ -1520,7 +1520,7 @@ MapReduce 的工作流程框架如上图所示，要处理的数据首先经过 
 10. 在一次任务执行过程中可能产生多个溢写文件，在所有 Mapper 执行结束后将对所有分区的各个溢写文件进行**归并排序**
 11. 在归并结束后，**可以**提前机型合并操作，来提高传输效率，也可以不进行
 
-![image-20230131140247346](hadoop.assets/image-20230131140247346.png)
+![image-20230131140247346](Hadoop.assets/image-20230131140247346.png)
 
 12. 启动 MapTask 任务，并告知 ReduceTask 处理数据的范围
 13. ReduceTask 将数据从各个 MapTask 服务器**下载**（ReduceTask 主动）到本地，默认会先放在内存，达到一定阈值会溢写到磁盘，并进行归并排序处理
@@ -1542,15 +1542,15 @@ MapReduce 的工作流程框架如上图所示，要处理的数据首先经过 
 
 ##### FileInputFormat
 
-![image-20230131125225909](hadoop.assets/image-20230131125225909.png)
+![image-20230131125225909](Hadoop.assets/image-20230131125225909.png)
 
-![image-20230131125402985](hadoop.assets/image-20230131125402985.png)
+![image-20230131125402985](Hadoop.assets/image-20230131125402985.png)
 
-![image-20230131125631370](hadoop.assets/image-20230131125631370.png)
+![image-20230131125631370](Hadoop.assets/image-20230131125631370.png)
 
 ##### CombineTextInputFormat
 
-![image-20230131131356282](hadoop.assets/image-20230131131356282.png)
+![image-20230131131356282](Hadoop.assets/image-20230131131356282.png)
 
 
 
@@ -1589,7 +1589,7 @@ CombineTextInputFormat 在进行切分时，会先对文件进行单独切片，
 
 Shuffle 是一个比较复杂的过程，在这个阶段，可以对 Mapper 的输出结果进行排序，压缩，分区等操作，然后将处理后的数据交给 Reduce 处理。流程如下：
 
-![image-20230131202844229](hadoop.assets/image-20230131202844229.png)
+![image-20230131202844229](Hadoop.assets/image-20230131202844229.png)
 
 ##### Partitioner
 
@@ -1732,7 +1732,7 @@ MapReduce  程序主要分为连个阶段：MapTask 和 RecudeTask。MapTask 阶
 
 在 Hadoop 中，主要是由 MapTask 类进行实现的，主要包含了 Read、Map、Collect、溢写、Merge 五个阶段，最后 Merge 阶段产生的输出文件将被 ReduceTask 拉取。
 
-![image-20230212120259916](hadoop.assets/image-20230212120259916.png)
+![image-20230212120259916](Hadoop.assets/image-20230212120259916.png)
 
 ##### MapTask 工作流程
 
@@ -1771,9 +1771,9 @@ MapReduce  程序主要分为连个阶段：MapTask 和 RecudeTask。MapTask 阶
 
 ReduceTask 在 MapTask 之后，主要分为三个阶段：Copy、Sort、Reduce。在 MapTask 阶段的分区数量将决定 ReduceTask 的并行度，也可以没有 ReduceTask 阶段，直接将 MapTask 阶段的结果输出。
 
-![image-20230212165625544](hadoop.assets/image-20230212165625544.png)
+![image-20230212165625544](Hadoop.assets/image-20230212165625544.png)
 
-![image-20230212170151067](hadoop.assets/image-20230212170151067.png)
+![image-20230212170151067](Hadoop.assets/image-20230212170151067.png)
 
 ##### ReduceTask 工作流程
 
@@ -2041,7 +2041,7 @@ public class MapJoinDriver {
 
 #### 生产换环境怎么用
 
-![image-20230215145738978](hadoop.assets/image-20230215145738978.png)
+![image-20230215145738978](Hadoop.assets/image-20230215145738978.png)
 
 #### 配置方式
 
@@ -2090,11 +2090,11 @@ Yarn 是一个资源调度平台，负责为运算程序提供服务器运算资
 
 #### Yarn 基础架构
 
-![image-20230225174535608](hadoop.assets/image-20230225174535608.png)
+![image-20230225174535608](Hadoop.assets/image-20230225174535608.png)
 
 #### Yarn 的工作机制
 
-![image-20230225175135181](hadoop.assets/image-20230225175135181.png)
+![image-20230225175135181](Hadoop.assets/image-20230225175135181.png)
 
 工作流程如下：
 
