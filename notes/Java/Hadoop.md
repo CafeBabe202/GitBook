@@ -2122,7 +2122,7 @@ CDH 框架默认调度器是 Fair Scheduler。
 
 FIFO 调度器（First In First Out）：单队列，根据提交作业的先后顺序，先来先服务。一般情况下不是使用该调度器。
 
-![image-20230225180712308](hadoop.assets/image-20230225180712308.png)
+![image-20230225180712308](Hadoop.assets/image-20230225180712308.png)
 
  
 
@@ -2130,9 +2130,9 @@ FIFO 调度器（First In First Out）：单队列，根据提交作业的先后
 
 是由雅虎开发的。
 
-![image-20230225191153388](hadoop.assets/image-20230225191153388.png)
+![image-20230225191153388](Hadoop.assets/image-20230225191153388.png)
 
-![image-20230225191447471](hadoop.assets/image-20230225191447471.png)
+![image-20230225191447471](Hadoop.assets/image-20230225191447471.png)
 
 
 
@@ -2140,15 +2140,15 @@ FIFO 调度器（First In First Out）：单队列，根据提交作业的先后
 
  由 FaceBook 开发。 
 
-![image-20230225192019141](hadoop.assets/image-20230225192019141.png)
+![image-20230225192019141](Hadoop.assets/image-20230225192019141.png)
 
-![image-20230225193554134](hadoop.assets/image-20230225193554134.png)
+![image-20230225193554134](Hadoop.assets/image-20230225193554134.png)
 
-![image-20230225193715879](hadoop.assets/image-20230225193715879.png)
+![image-20230225193715879](Hadoop.assets/image-20230225193715879.png)
 
- ![image-20230225194228849](hadoop.assets/image-20230225194228849.png)
+ ![image-20230225194228849](Hadoop.assets/image-20230225194228849.png)
 
-![image-20230225194405806](hadoop.assets/image-20230225194405806.png)
+![image-20230225194405806](Hadoop.assets/image-20230225194405806.png)
 
 #### Yarn 在生产环境下需要配置的参数
 
