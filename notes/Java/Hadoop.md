@@ -1,4 +1,4 @@
-#  Hadoop
+Hadoop
 
 ## Hadoop概念
 
@@ -2083,4 +2083,84 @@ FileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
 ```
 
 ## YARN
+
+### 理论
+
+Yarn 是一个资源调度平台，负责为运算程序提供服务器运算资源，相当于一个分布式的操作系统平台，而 MapReduce 等运算程序则相当于操作系统之上的应用程序。
+
+#### Yarn 基础架构
+
+![image-20230225174535608](hadoop.assets/image-20230225174535608.png)
+
+#### Yarn 的工作机制
+
+![image-20230225175135181](hadoop.assets/image-20230225175135181.png)
+
+工作流程如下：
+
+1.  
+
+#### Mapreduce/HDFS/Yarn
+
+#### 调度器和调度算法
+
+目前，Hadoop 作业调度器主要由三种：FIFO、容量（Capacity Scheduler）调度器和公平（Fair Scheduler）调度器。Apache Hadoop3.1.3 默认的资源调度器是 Capacity Scheduler。
+
+CDH 框架默认调度器是 Fair Scheduler。
+
+具体配置详见：`yarn-defalut.xml` 文件
+
+```xml
+<property>
+	<description> </description>
+    <name>yarn.resourcemanager.scheduler.class</name
+        <value>org.apach.hadoop.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+</property>
+```
+
+##### FIFO
+
+FIFO 调度器（First In First Out）：单队列，根据提交作业的先后顺序，先来先服务。一般情况下不是使用该调度器。
+
+![image-20230225180712308](hadoop.assets/image-20230225180712308.png)
+
+ 
+
+##### 容量调度器
+
+是由雅虎开发的。
+
+![image-20230225191153388](hadoop.assets/image-20230225191153388.png)
+
+![image-20230225191447471](hadoop.assets/image-20230225191447471.png)
+
+
+
+##### 公平调度器
+
+ 由 FaceBook 开发。 
+
+![image-20230225192019141](hadoop.assets/image-20230225192019141.png)
+
+![image-20230225193554134](hadoop.assets/image-20230225193554134.png)
+
+![image-20230225193715879](hadoop.assets/image-20230225193715879.png)
+
+ ![image-20230225194228849](hadoop.assets/image-20230225194228849.png)
+
+![image-20230225194405806](hadoop.assets/image-20230225194405806.png)
+
+#### Yarn 在生产环境下需要配置的参数
+
+#### 命令行操作 Yarn
+
+### 怎么玩
+
+#### 生产环境下怎么配置
+
+#### 容量调度器在生产环境怎么配置
+
+#### 公平调度器的配置
+
+#### Yarn tool 接口
 
