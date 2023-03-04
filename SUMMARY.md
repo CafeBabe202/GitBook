@@ -2,7 +2,7 @@
 
 ## 数据库
 
-* [😃 MySQL笔记](notes/dataBase/MySQL笔记.md)
+* [😃 MySQL笔记](README.md)
 
 ## JAVA
 
@@ -11,7 +11,7 @@
 * [😄 MyBatis](notes/Java/MyBatis.md)
 * [😄 Spring](notes/Java/Spring.md)
 * [😁 SpringMVC](notes/Java/SpringMVC.md)
-* [😁 Hadoop](notes/Java/Hadoop.md) 
+* [😄 Hadoop](notes/Java/Hadoop.md)
 * [😁 JVM](notes/Java/JVM.md)
 * [😅 垃圾收集器](notes/Java/垃圾收集器.md)
 
