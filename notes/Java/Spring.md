@@ -1,4 +1,4 @@
-# Spring
+# 😄 Spring
 
 ## IOC
 
@@ -383,8 +383,8 @@ public class Config {
 
 （1）动态代理的两种情况
 
-- 有接口的情况，使用JDK的动态代理；创建接口类的代理对象，增强类中的方法
-- 没有接口的情况，使用CGLIB的动态代理；通过创建子类来增强类中的方法
+* 有接口的情况，使用JDK的动态代理；创建接口类的代理对象，增强类中的方法
+* 没有接口的情况，使用CGLIB的动态代理；通过创建子类来增强类中的方法
 
 #### 2、使用JDK实现动态代理
 
@@ -463,7 +463,7 @@ class UserDaoProxy implements InvocationHandler {
 
 1、Spring框架一般都是基于AspectJ实现AOP操作
 
-​	AspecJ不是Spring的组成部分，是独立的AOP框架，一般AspectJ和Spring框架一起使用，进行AOP操作。
+​ AspecJ不是Spring的组成部分，是独立的AOP框架，一般AspectJ和Spring框架一起使用，进行AOP操作。
 
 2、基于AspectJ实现AOP
 
@@ -477,21 +477,21 @@ class UserDaoProxy implements InvocationHandler {
 
 （1）切入点表达式作用：知道对那个类里面的方法进行增强
 
-（2）语法结构：execution( [权限修饰符] [返回类型] [全类路径] [方法名] ([参数类表]) )
+（2）语法结构：execution( \[权限修饰符] \[返回类型] \[全类路径] \[方法名] (\[参数类表]) )
 
 5、切入点表达式举例
 
 （1）对cn.happyonion801.study.spring.DAO.BookDao的add方法进行增强
 
-execution(* cn.happyonion801.study.spring.DAO.BookDao.add(...))
+execution(\* cn.happyonion801.study.spring.DAO.BookDao.add(...))
 
 （2）对cn.happyonion801.study.spring.DAO.BookDao的所有方法进行增强
 
-execution(* cn.happyonion801.study.spring.DAO.BookDao.*(...))
+execution(\* cn.happyonion801.study.spring.DAO.BookDao.\*(...))
 
 （3）对cn.happyonion801.study.spring.DAO.包中的所有类的所有方法进行增强
 
-execution(* cn.happyonion801.study.spring.DAO.* .*(...))
+execution(\* cn.happyonion801.study.spring.DAO.\* .\*(...))
 
 ### 基于xml实现增强
 
@@ -886,19 +886,19 @@ public class Test {
 
 2、在 spring 中进行事务管理的方式
 
-- 编程式；不推荐使用
-- 声明式；推荐使用
+* 编程式；不推荐使用
+* 声明式；推荐使用
 
 3、声明式事务管理
 
-- 基于注解方式；简单，方便
-- 基于 xml 方式
+* 基于注解方式；简单，方便
+* 基于 xml 方式
 
 4、在 spring 中进行声明式管理，底层使用 AOP
 
 5、spring 事务管理中相关的 API
 
-- 提供了一个接口，代表事务管理器，这个接口针对不同的框架实现了不同的实现类。
+* 提供了一个接口，代表事务管理器，这个接口针对不同的框架实现了不同的实现类。
 
 #### 在 spring 中进行事务声明
 
@@ -995,25 +995,25 @@ public class UserService {
 
 2、ioslation：事务的隔离级别
 
-- 为了解决隔离性的问题，保证多事务操作之间不会产生影响
-- 有的三个问题：脏读、不可重复读、幻（虚）读
-- 详细内容见Mysql笔记
+* 为了解决隔离性的问题，保证多事务操作之间不会产生影响
+* 有的三个问题：脏读、不可重复读、幻（虚）读
+* 详细内容见Mysql笔记
 
 3、timeout：超时时间
 
-- 超过一定时间没有提交的事务自动提交
+* 超过一定时间没有提交的事务自动提交
 
 4、readOnly：是否只读
 
-- 如果一个事务设置为只读，那么只能进行查询操作，将不能进行增删改操作
+* 如果一个事务设置为只读，那么只能进行查询操作，将不能进行增删改操作
 
 5、rollbackFor：回滚
 
-- 设置出现那些异常时进行事务回滚
+* 设置出现那些异常时进行事务回滚
 
 6、noRollbackFor：不回滚
 
-- 设置出现那些异常是不进行事务回滚
+* 设置出现那些异常是不进行事务回滚
 
 #### 基于xml声明式进行事务管理
 
@@ -1118,25 +1118,14 @@ public class Jdbc {
 ## Spring5中的新功能
 
 1. 整个 spring5 基于 java8，运行时兼容jdk9，将不建议的类和方法删除
-
 2. spring5框架自带了通用的日志封装，也可以整合第三方日志框架
-
-   - spring5移出了Log4jConfigListener，官方建议使用Log4j2
-
-
-   - sprig5框架整合Log4j2
-   - 引入依赖
-     - 创建Log4j2配置文件（Log4j2.xml 固定的）
-
-
+   * spring5移出了Log4jConfigListener，官方建议使用Log4j2
+   * sprig5框架整合Log4j2
+   * 引入依赖
+     * 创建Log4j2配置文件（Log4j2.xml 固定的）
 3. spring5支持@Nullable注解
+   * 在方法上边，方法的返回值可以为空
+   * 使用在方法参数里，方法的参数可以为空
+   * 使用在属性上边，属性值可以为空
 
-   - 在方法上边，方法的返回值可以为空
-
-   - 使用在方法参数里，方法的参数可以为空
-
-   - 使用在属性上边，属性值可以为空
-
-
-​    
-
+​

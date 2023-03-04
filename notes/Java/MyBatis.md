@@ -1,4 +1,4 @@
-# Mybatis
+# 😄 MyBatis
 
 ## 基础入门
 
@@ -433,17 +433,17 @@ public class Student{
 
 问题的关键在于第二种方法，你肯能懂它大概的意思，其实这里有来两个注意的地方：
 
-- javaType 和 ofType
-  - javaType：集合的类型，也就是对应的属性的java类型。
-  - ofType：集合类的范型类型，也就是你要封装成的对象的类型。
-- column有什么用？
-  - 细心的会发现 collection 标签的 column，简单来说，他就是外键的 column 名。
-  - 我们知道集合中肯定是另一种bean对象，所有肯定对应数据库的另一张表，那怎么表示这种关系呢，那就是外键。
-  - 这种方法会有一个子查询，第一次只是查询主表，将外将查询出来，然后解析到collection标签时在通过外键的值去查询附表，然收将查询出来的结果封装成对象放在对应的集合之中。
-  - 上面说的外键只是用来帮助你理解，如果你不喜欢外键，当然也可以不设置外键。
-- 两种方法什么特点
-  - 第一种方法会合并对象，example 一个学生有很多课程，当出现两个一样（所有字段的属性的值都是一样的，我想一般不会出现这种情况）的学生时，就算数据库中有两个学生你也只能查询出来一条，因为myBatis会认为这是同一个对象。（实际上就连你自己也分不清这是一个还是两个对象）。
-  - 第二中方法会进行多次数据库查询，所以说有两个对象就不会合并（要是有缓存不知道会不会不一样？），因为他们不是同一时间查询出来的，myBatis不用进行合并工作，也就不存在刚刚的问题。
+* javaType 和 ofType
+  * javaType：集合的类型，也就是对应的属性的java类型。
+  * ofType：集合类的范型类型，也就是你要封装成的对象的类型。
+* column有什么用？
+  * 细心的会发现 collection 标签的 column，简单来说，他就是外键的 column 名。
+  * 我们知道集合中肯定是另一种bean对象，所有肯定对应数据库的另一张表，那怎么表示这种关系呢，那就是外键。
+  * 这种方法会有一个子查询，第一次只是查询主表，将外将查询出来，然后解析到collection标签时在通过外键的值去查询附表，然收将查询出来的结果封装成对象放在对应的集合之中。
+  * 上面说的外键只是用来帮助你理解，如果你不喜欢外键，当然也可以不设置外键。
+* 两种方法什么特点
+  * 第一种方法会合并对象，example 一个学生有很多课程，当出现两个一样（所有字段的属性的值都是一样的，我想一般不会出现这种情况）的学生时，就算数据库中有两个学生你也只能查询出来一条，因为myBatis会认为这是同一个对象。（实际上就连你自己也分不清这是一个还是两个对象）。
+  * 第二中方法会进行多次数据库查询，所以说有两个对象就不会合并（要是有缓存不知道会不会不一样？），因为他们不是同一时间查询出来的，myBatis不用进行合并工作，也就不存在刚刚的问题。
 
 emmmm。。。。测试代码就不写了吧！真希望你成功的执行了你的代码，并且听懂了刚刚这一切。
 
@@ -648,8 +648,8 @@ public class MyCache implements Cache {
 
 就是myBatis支持一些插件来减少你的代码，去百度吧！这里我就不想讲了！！！！！
 
-- pageHelper
-- 逆向工程
+* pageHelper
+* 逆向工程
 
 这是两个插件，去看看吧，还是挺有用的！
 
@@ -657,7 +657,7 @@ public class MyCache implements Cache {
 
 ### mybatis 原理
 
-Mybatis 的核心是 SqlSessionFactory 和 SqlSession，SqlSessionFactory 用来生成 SqlSession 对象，通过 SqlSessionFactoryBuilder 来创建 SqlSessionFactory 时，将通过传入的流对象来生成 Configuration 和 Environment 来保存配置信息，每次创建 SqlSession 时将配置信息设置给 SqlSession 对象。SqlSessionFactory  相当于一个数据库连接池，它的生命周期应该贯穿整个应用的生命周期，每次进行分配 SqlSession 时将从中获取一个连接来赋值给 SqlSession。SqlSession 相当于 JDBC 中 Connection 类的高级抽象。
+Mybatis 的核心是 SqlSessionFactory 和 SqlSession，SqlSessionFactory 用来生成 SqlSession 对象，通过 SqlSessionFactoryBuilder 来创建 SqlSessionFactory 时，将通过传入的流对象来生成 Configuration 和 Environment 来保存配置信息，每次创建 SqlSession 时将配置信息设置给 SqlSession 对象。SqlSessionFactory 相当于一个数据库连接池，它的生命周期应该贯穿整个应用的生命周期，每次进行分配 SqlSession 时将从中获取一个连接来赋值给 SqlSession。SqlSession 相当于 JDBC 中 Connection 类的高级抽象。
 
 ### SqlSessionFactoryBuilder
 
@@ -697,7 +697,7 @@ Mybatis 的核心是 SqlSessionFactory 和 SqlSession，SqlSessionFactory 用来
 
 ### SqlSessionFactory
 
-SqlSessionFactory 的主要工作就是保存最初读取的配置信息并创建 SqlSession 对象，它相当于一个数据连接池，数据源的信息保存在 Environment  中，每次进行 SqlSession 分配的时候将分配一个 Executor 对象。
+SqlSessionFactory 的主要工作就是保存最初读取的配置信息并创建 SqlSession 对象，它相当于一个数据连接池，数据源的信息保存在 Environment 中，每次进行 SqlSession 分配的时候将分配一个 Executor 对象。
 
 ```java
 // 这是最终创建 SqlSession 的方法
@@ -720,7 +720,7 @@ private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionI
 
 ### SqlSession
 
-SqlSession 是对 JDBC 中 Connectin 的抽象，他的主要任务任务就是执行 sql、生成 Mapper 对象和缓存，mybatis的一级缓存就是存放在 SqlSession  中的。SqlSession 生成 Mapper 是通过 Configuration 中的 MapperRegistry 来完成的。MapperRegistry 中维护了一个 Map，映射了不同类型的 Mapper 对应的 MapperProxyFactory，当读取配置文件时，将自动扫面每个 Mapper 接口的 XML 配置文件，然后注册到该 Mapper 中。MapperProxyFactory 中同样维护了一个 Map 映射了 Method 和 MapperMethod，Method 就是接口中的方法，MapperMethod 就是代理执行的方法（他不是 java.lang.reflect.Method 的子类，而是通过 **MapperMethod.execute(SqlSession sqlSession, Object[] args)** 来真正的执行 sql ）。获取 Mapper 时，先要从 Map 中获取对应的代理工厂，然后再通过代理工厂来创建一个 Mapper 的代理对象。
+SqlSession 是对 JDBC 中 Connectin 的抽象，他的主要任务任务就是执行 sql、生成 Mapper 对象和缓存，mybatis的一级缓存就是存放在 SqlSession 中的。SqlSession 生成 Mapper 是通过 Configuration 中的 MapperRegistry 来完成的。MapperRegistry 中维护了一个 Map，映射了不同类型的 Mapper 对应的 MapperProxyFactory，当读取配置文件时，将自动扫面每个 Mapper 接口的 XML 配置文件，然后注册到该 Mapper 中。MapperProxyFactory 中同样维护了一个 Map 映射了 Method 和 MapperMethod，Method 就是接口中的方法，MapperMethod 就是代理执行的方法（他不是 java.lang.reflect.Method 的子类，而是通过 **MapperMethod.execute(SqlSession sqlSession, Object\[] args)** 来真正的执行 sql ）。获取 Mapper 时，先要从 Map 中获取对应的代理工厂，然后再通过代理工厂来创建一个 Mapper 的代理对象。
 
 ```java
 //  MapperRegistry 中创建 Mapper 的方法
@@ -797,4 +797,3 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
   private boolean isDefaultMethod(Method method) {}
 }
 ```
-
